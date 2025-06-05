@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raju Bondugula | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Responsive layout adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .typed-text {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .social-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-list li {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">RAJU</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Bondugula Raju</h1>
+    <p class="typed-text"><span id="typing"></span></p>
+    <a href="#projects" class="btn">View My Projects</a>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/rajubondugula" target="_blank">LinkedIn</a>
+      <a href="https://raju1234567889.github.io/portof" target="_blank">GitHub</a>
+      <a href="resume.pdf" download>Download Resume</a>
+    </div>
+  </section>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Motivated and detail-oriented engineer passionate about secure software, cloud computing, and machine learning.</p>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Malware Detection System</h3>
+        <p>Detects malware in .exe files using ML and VirusTotal API.</p>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Gesture Media Controller</h3>
+        <p>Controls media via webcam gesture recognition.</p>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Tour Management System</h3>
+        <p>Responsive travel guide web app using HTML/CSS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-left">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Java</li>
+      <li>Python</li>
+      <li>HTML/CSS</li>
+      <li>JavaScript</li>
+      <li>Git</li>
+      <li>AWS</li>
+    </ul>
+  </section>
+
+  <section id="certifications" data-aos="fade-right">
+    <h2>Certifications</h2>
+    <ul class="skills-list">
+      <li>Python Programming Internship – Codesoft (May 2025)</li>
+      <li>IoT Blockchain – IBM</li>
+      <li>Young Professional – TCS iON</li>
+      <li>AWS Solution Architect – Forage</li>
+      <li>EA Software Engineering – Forage</li>
+      <li>Cybersecurity Analyst – Forage</li>
+      <li>Microsoft DAX & Configuration Tools – SmartInternz</li>
+    </ul>
+  </section>
+
+  <section id="contact" data-aos="zoom-in">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> rajubondugula182002@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9618075830</p>
+    <p><strong>Location:</strong> Hyderabad, India</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bondugula Raju. All Rights Reserved.</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Go to top">⬆</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    const text = ["Computer Science Engineer","Cybersecurity Enthusiast", "Python Developer"];
+    let index = 0, char = 0;
+    const typingElement = document.getElementById("typing");
+
+    function type() {
+      if (char < text[index].length) {
+        typingElement.innerHTML += text[index].charAt(char++);
+        setTimeout(type, 80);
+      } else {
+        setTimeout(() => {
+          typingElement.innerHTML = "";
+          char = 0;
+          index = (index + 1) % text.length;
+          type();
+        }, 1200);
+      }
+    }
+    type();
+
+    const btn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      btn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  </script>
+</body>
+</html>
